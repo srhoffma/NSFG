@@ -15,7 +15,7 @@ Variable UF is described here: https://www.icpsr.umich.edu/icpsradmin/nsfg/varia
 
 National estimate for black women ages 23-35 was 5.87%	(95% CI: 4.32, 7.42).
 
-Also included is output from our inquiry into current use estimates for hormonal contraceptives in black women ages 23-35.
+Also included is code from our inquiry into current use estimates for hormonal contraceptives in black women ages 23-35.
 
 We found that current HC use by type was similar to what we observed in SELF enrollees. 
 
