@@ -30,7 +30,7 @@ proc means data=self.data1; var age_r ager; run;
 data FEMALE;
 set self.data1/* (replace with your PUF fem resp file filename) */
 (keep=caseid uf age_r race sest secu wgt2011_2013 );
-*divide weight by 1000 to get numbers in thousands – optional;
+*divide weight by 1000 to get numbers in thousands â€“ optional;
 wgt1000=wgt2011_2013/1000;
 *Create subpopulation variable for all black women aged 23-35;
 bwattf=2;
@@ -86,7 +86,7 @@ ods rtf close;
 data FEMALE;
 set self.data1/* (replace with your PUF fem resp file filename) */
 (keep=caseid CONSTAT1 age_r race sest secu wgt2011_2013 );
-*divide weight by 1000 to get numbers in thousands – optional;
+*divide weight by 1000 to get numbers in thousands â€“ optional;
 wgt1000=wgt2011_2013/1000;
 *Create subpopulation variable for all black women aged 23-35;
 bwattf=2;
@@ -107,16 +107,3 @@ weight wgt2011_2013;
 *format hadsex yesno.;
 run;
 ods rtf close;
-
-proc surveyfreq data=Fsorted;
-cluster SECU;
-stratum SEST;
-title "Percentage of black women aged 23-35 who had ever been diagnosed with uterine fibroids: 2011-2013";
-title2 "Weighted to produce national estimates";
-table bwattf*CONSTAT1/ NOCELLPERCENT NOTOTAL NOFREQ NOWT CL row NOSPARSE;
-weight wgt2011_2013;
-*format hadsex yesno.;
-run;
-
-proc contents data=self.data1; run;
-proc freq data=self.data1; tables constat1 /missing; run;
